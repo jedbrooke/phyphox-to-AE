@@ -485,7 +485,8 @@ class Window():
 
     def create_submit_input(self,input_tag,parent):
         """creates the submit button for Forms"""
-        button = tk.Button(parent, command=lambda : self.form.submit(), text="Submit")
+        text = TagUtility.get_attribute(input_tag,"text",str)
+        button = tk.Button(parent, command=lambda : self.form.submit(), text=text)
         button.grid(TagUtility.get_grid_args(input_tag))
         return button
 

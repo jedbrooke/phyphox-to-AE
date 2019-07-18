@@ -4,12 +4,28 @@
 	<title>Test Page</title>
 </head>
 <body>
-	<label>This is the test page for the gui engine</label>
-	<label>There will probably be some options and stuff</label>
-	<select name="selector">
-		<option value="1">something</option>
-		<option value="2">another thing</option>
-	</select>
-	<input type="submit" name="submit">
+	<label>PhyPhox to AE converter</label>
+	<label>options:</label>
+	<form action="submit">
+		<div pady=5 padx=15>
+			<label>Select File Type:</label>
+			<select name="file_type">
+				<option value="xls">Excel (.xls)</option>
+				<option value="csv,c,dp">CSV (Comma, decimal point)</option>
+				<option value="csv,t,dp">CSV (Tabulator, decimal point)</option>
+				<option value="csv,s,dp">CSV (Semicolon, decimal point)</option>
+				<option value="csv,t,dc">CSV (Tabulator, deciaml comma)</option>
+				<option value="csv,s,dc">CSV (Semicolon, decimal commma)</option>
+			</select>
+		</div>
+		<div pady=5 padx=15>
+			<label>Export destination</label>
+			<select name="export_dest">
+				<option value="text">.txt file</option>
+				<option	value="copy">copy to clipboard</option>
+			</select>
+		</div>
+		<input type="submit" name="submit" text="open file" pady=5>
+	</form>
 </body>
 </html>

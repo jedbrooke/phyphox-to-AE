@@ -9,8 +9,7 @@ class MainForm(Form):
             "xls":[("Excel files", "*.xlsx *.xls")],
             **dict.fromkeys(["csv,c,dp","csv,t,dp","csv,s,dp","csv,t,dc","csv,s,dc"],[("Text files","*.txt"),("CSV files","*.csv"),("All files","*")])
         }
-        print(self.file_types["csv,c,dp"])
-    
+        self.outputs = ["text","xls"]
     '''this is where it all goes down'''
 
     def submit(self):
@@ -24,11 +23,10 @@ class MainForm(Form):
 
         if(self.input_file):
             print(self.input_file)
-            if export_dest == "text":
-                self.output_file = tkfd.asksaveasfilename(parent=self.window.win,initialdir=os.environ['HOME'],title="Select output file",filetypes=[("Text files","*.txt")])
+            if export_dest in self.outputs:
+                self.output_file = tkfd.asksaveasfilename(parent=self.window.win,initialdir=os.environ['HOME'],title="Select output file",filetypes=self.file_types[export_dest])
                 if self.output_file:
-                    print(self.output_file)
-        
+                    print(self.output_file) 
 
 w = Window(path="gui_pages/main.html",main=True, form=MainForm)
 w.start()
